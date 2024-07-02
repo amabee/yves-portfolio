@@ -1,95 +1,77 @@
+"use client"
+import React, { useEffect } from "react";
 import Image from "next/image";
-import styles from "./page.module.css";
+import '../public/assets/style.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../public/assets/aos.css';
+import '../public/assets/line-awesome.min.css';
+
+import Link from "next/link";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { Button, Container, Row, Col } from "react-bootstrap";
+
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init();
+  }, [])
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <body data-bs-spy="scroll" data-bs-target=".navbar" style={{ backgroundColor: "yellowgreen" }}>
+
+      <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div className="container flex-lg-column">
+          <Link className="navbar-brand mx-lg-auto mb-lg-4" href="#">
+            <span className="h3 fw-bold d-block d-lg-none">Yves Owen Bonita</span>
+            <Image src="/images/yves.png" width={150} height={180} className="d-none d-lg-block rounded-circle" alt="ogims!"></Image>
+          </Link>
+
+          <Button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </Button>
+
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto flex-lg-column text-lg-center">
+
+              <li className="nav-item">
+                <Link className="nav-link" href={"/"}>Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href={"/services"}>Services</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href={"/about"}>About</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href={"/todos"}>My Todos</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" href={"/contact"}>Contact</Link>
+              </li>
+
+            </ul>
+          </div>
+
         </div>
+      </nav>
+
+      <div id="content-wrapper">
+        <section id="home" className="full-height px-lg-5">
+
+          <Container className="container">
+            <Row>
+              <div className="col-lg-10">
+                <h1 className="display-4 fw-bold" data-aos="fade-up">HEY THERE! I'M <span className="text-brand">YVES OWEN BONITA</span> FROM CAGAYAN DE ORO CITY, <span className="text-brand">PHILIPPINES</span></h1>
+              </div>
+            </Row>
+
+          </Container>
+
+
+        </section>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </body>
   );
 }
